@@ -65,7 +65,7 @@ int	get_char(int fd, char *c)
 	return (rs);
 }
 
-int	*get_next_line(const int fd)
+char	*get_next_line(int fd)
 {
 	char *buffer;
 	int i = 0;
