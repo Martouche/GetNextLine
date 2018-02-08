@@ -47,9 +47,9 @@ char    *my_realloc(char *ptr, size_t size)
 
 int	get_char(int fd, char *c)
 {
-	static int	i = 0;
-	static char	buffer[READ_SIZE];
-	static int	rs = READ_SIZE;
+	static int i = 0;
+	static char buffer[READ_SIZE];
+	static int rs = READ_SIZE;
 
 	if (i >= rs || i == 0)
 	{
@@ -85,16 +85,4 @@ char	*get_next_line(int fd)
 	}
 	buffer[i + 1] = buffer[rs + 1];
 	return (buffer);
-}
-
-int	main(void)
-{
-	char *s = get_next_line(0);
-	while (s) {
-		my_putstr(s);
-		my_putchar('\n');
-		free(s);
-		s = get_next_line(0);
-	}
-	return (0);
 }
