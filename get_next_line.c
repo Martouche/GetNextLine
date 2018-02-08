@@ -12,20 +12,17 @@
 
 int	my_strlen(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	int i = 0;
+	
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
 char	*my_strcpy(char *dest, char *src)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
+	int i = 0;
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
