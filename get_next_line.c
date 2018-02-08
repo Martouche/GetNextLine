@@ -67,12 +67,10 @@ int	get_char(int fd, char *c)
 
 int	*get_next_line(const int fd)
 {
-	char	*buffer;
-	int	i;
-	int	rs;
+	char *buffer;
+	int i = 0;
+	int rs = 0;
 
-	i = 0;
-	rs = 0;
 	if ((buffer = malloc(sizeof(char) * READ_SIZE + 1)) == NULL)
 		return (NULL);
 	rs = get_char(fd, &buffer[i]);
@@ -87,4 +85,16 @@ int	*get_next_line(const int fd)
 	}
 	buffer[i + 1] = buffer[rs + 1];
 	return (buffer);
+}
+
+int	main(void)
+{
+	char *s = get_next_line(0);
+	while (s) {
+		my_putstr(s);
+		my_putchar('\n');
+		free(s);
+		s = get_next_line(0);
+	}
+	return (0);
 }
